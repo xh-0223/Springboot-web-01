@@ -23,10 +23,20 @@ import java.util.stream.Collectors;
 @RestController//Responsebody将Controller的返回值直接作为响应体的数据响应+Controller->RestController
 public class UserController{
     //ioc控制反转di依赖注入
-    @Autowired//完成依赖注入，从ioc容器中找到bean对象注入依赖di
+    //方法一 属性注入  @Autowired//完成依赖注入，从ioc容器中找到bean对象注入依赖di
+    //   private UserService userService;
+    //方法二 构造器注入
+//    private final UserService userService;
+//    @Autowired//如果只有一个构造方法可以省略Autowired
+//    public UserController(UserService userService){
+//        this.userService=userService;
+//    }
+    //方法三 setter注入
     private UserService userService;
-
-
+    @Autowired
+    public void SetUserService(UserService userService){
+        this.userService=userService;
+    }
     @RequestMapping("/list")
     public List<User> list() {
             //1.调用service，获取数据
