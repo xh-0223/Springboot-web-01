@@ -20,10 +20,10 @@ import java.util.stream.Collectors;
 
 
 //用户信息
-@RestController
+@RestController//Responsebody将Controller的返回值直接作为响应体的数据响应+Controller->RestController
 public class UserController{
-
-    @Autowired
+    //ioc控制反转di依赖注入
+    @Autowired//完成依赖注入，从ioc容器中找到bean对象注入依赖di
     private UserService userService;
 
 
