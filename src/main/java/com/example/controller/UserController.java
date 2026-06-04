@@ -4,7 +4,9 @@ import cn.hutool.core.io.IoUtil;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import com.example.service.impl.UserServiceImpl;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,11 +34,18 @@ public class UserController{
 //        this.userService=userService;
 //    }
     //方法三 setter注入
+//    private UserService userService;
+//    @Autowired
+//    public void SetUserService(UserService userService){
+//        this.userService=userService;
+//    }
+//    @Qualifier("userServiceImpl")//第②种方法  beans->写实现类的类名首字母小写
+//    @Autowired
+//    private UserService userService;
+
+
+    @Resource(name="userServiceImpl2")//第③种方法
     private UserService userService;
-    @Autowired
-    public void SetUserService(UserService userService){
-        this.userService=userService;
-    }
     @RequestMapping("/list")
     public List<User> list() {
             //1.调用service，获取数据
