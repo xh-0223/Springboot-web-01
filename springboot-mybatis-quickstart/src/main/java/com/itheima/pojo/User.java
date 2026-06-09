@@ -1,15 +1,16 @@
 package com.itheima.pojo;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
-   private String username;
-   private Integer id;
-   private String password;
-   private String name;
-   private Integer age;
+    private Integer id; //ID
+    private String username; //用户名
+    private String password; //密码
+    private String name; //姓名
+    private Integer age; //年龄
 }

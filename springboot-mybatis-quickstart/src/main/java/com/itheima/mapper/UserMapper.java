@@ -1,18 +1,20 @@
 package com.itheima.mapper;
 
+
 import com.itheima.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
-
-@Mapper //运行时自动为接口创建实现类对象，并且自动的将该实现类对象存入IOC容器 -bean
+//@Param注解的作用是为接口的方法形参起名字的,官方骨架可以不用加
+@Mapper
 public interface UserMapper {
-@Select("select * from user")
-    public List<User> findAll();
-@Delete("delete from user where id=  #{id}")
-//public void deleteByID(Integer id);
-    public Integer deleteById(Integer id);
+    @Select("select * from user where username=#{username}and password=#{password}")
+    public User findByNameAndPassword(@Param("username") String username,@Param("password") String password);
+    @Insert("insert into user(id,username,password,name,age) values(#{id},#{username},#{password},#{name},#{age})")
+    public void insert(User user);
+    @Delete("delete from user where age=20")
+    public void delete(User user);
+    @Update("update user set username=#{username},password=#{password},name=#{name},age=#{age} where id=12")
+    public void update(User user);
 
 }

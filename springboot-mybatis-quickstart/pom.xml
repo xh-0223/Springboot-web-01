@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.6</version>
-        <relativePath/>
+        <version>3.5.14</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>Springboot-web-01</artifactId>
+    <groupId>com.itheima</groupId>
+    <artifactId>springboot-mybatis-quickstart</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Springboot-web-01</name>
-    <description>Springboot-web-01</description>
+    <name>springboot-mybatis-quickstart</name>
+    <description>springboot-mybatis-quickstart</description>
     <url/>
     <licenses>
         <license/>
@@ -26,41 +26,38 @@
         <tag/>
         <url/>
     </scm>
-
-    <!-- 父工程固定为 pom -->
-    <packaging>pom</packaging>
-
-    <!-- 你的子模块：Mybatis + jdbc-demo -->
-    <modules>
-        <module>jdbc-demo</module>
-        <module>springboot-mybatis-quickstart</module>
-    </modules>
-
     <properties>
         <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webmvc</artifactId>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>3.0.5</version>
         </dependency>
 
         <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.18.30</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webmvc-test</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.8.27</version>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter-test</artifactId>
+            <version>3.0.5</version>
+            <scope>test</scope>
         </dependency>
-    </dependencies>
+          </dependencies>
 
     <build>
         <plugins>
